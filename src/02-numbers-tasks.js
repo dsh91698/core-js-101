@@ -19,8 +19,9 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  // throw new Error('Not implemented');
+  return width * height;
 }
 
 
@@ -35,8 +36,9 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+  // throw new Error('Not implemented');
+  return 2 * radius * Math.PI;
 }
 
 /**
@@ -53,6 +55,10 @@ function getCircleCircumference(/* radius */) {
  */
 function getAverage(/* value1, value2 */) {
   throw new Error('Not implemented');
+
+  // if ((value1 + value2) === 0) { return 0; }
+  // const mean = (value1 + value2) / 2;
+  // return Math.avg(value1, value2);
 }
 
 /**
@@ -201,8 +207,19 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(num) {
+  // throw new Error('Not implemented');
+
+  if (num <= 0) return false;
+  if (num === 1) { return false; }
+  if (num === 5 || num === 7) { return true; }
+  if (num <= 3 && num > 0) { return true; }
+  let i;
+  // eslint-disable-next-line no-plusplus
+  for (i = 2; i <= Math.ceil(Math.sqrt(num)); i++) {
+    if (!(num % i)) { return false; }
+  }
+  return true;
 }
 
 /**
