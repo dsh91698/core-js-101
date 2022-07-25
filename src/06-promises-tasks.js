@@ -54,8 +54,14 @@ function willYouMarryMe(isPositiveAnswer) {
  *    })
  *
  */
-function processAllPromises(/* array */) {
-  throw new Error('Not implemented');
+function processAllPromises(array) {
+  // throw new Error('Not implemented');
+  // eslint-disable-next-line no-unused-vars
+  return new Promise((resolve, reject) => {
+    Promise.all(array).then((res) => {
+      resolve(res);
+    }).catch((err) => { reject(err); });
+  });
 }
 
 /**
