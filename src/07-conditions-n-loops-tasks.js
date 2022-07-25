@@ -27,8 +27,20 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  // throw new Error('Not implemented');
+  const c3 = num % 3;
+  const c5 = num % 5;
+  if (c3 === 0 && c5 === 0) {
+    return 'FizzBuzz';
+  }
+  if (c3 === 0) {
+    return 'Fizz';
+  }
+  if (c5 === 0) {
+    return 'Buzz';
+  }
+  return num;
 }
 
 
@@ -43,8 +55,9 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  // throw new Error('Not implemented');
+  return n === 0 ? 1 : n * getFactorial(n - 1);
 }
 
 
@@ -60,8 +73,13 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  // throw new Error('Not implemented');
+  let rez = 0;
+  for (let i = n1; i <= n2; i += 1) {
+    rez += i;
+  }
+  return rez;
 }
 
 
@@ -268,8 +286,21 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+// eslint-disable-next-line consistent-return
+function getDigitalRoot(num) {
+  // throw new Error('Not implemented');
+  const arrOfDigitsFromNum = (n) => [...(n.toString())].map((char) => Number(char));
+  let arr = [...(num.toString())].map((char) => Number(char));
+
+  const sumFind = (a) => a.reduce((acc, cur) => acc + cur);
+  let sum = sumFind(arr);
+  if (sum > 9) {
+    arr = arrOfDigitsFromNum(sum);
+    sum = sumFind(sum);
+  }
+  if (sum < 10) {
+    return sum;
+  }
 }
 
 
